@@ -2,14 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => (
-  <header className="bg-blue-500 text-white py-4">
-    <nav className="container mx-auto flex justify-center items-center">
-      <h1 className="text-2xl font-bold">Meu Portfólio</h1>
-      <ul className="flex space-x-4">
-        <li><a href="/" className="hover:underline">Início</a></li>
-        <li><a href="/about" className="hover:underline">Sobre</a></li>
-        <li><a href="/projects" className="hover:underline">Projetos</a></li>
-        <li><a href="/contact" className="hover:underline">Contato</a></li>
+  <header className="">
+    <nav className='bg-gray-700 min-h-screen flex flex-col items-center p-9 m-8'>
+      <ul>
+        <li><Link to="/">Início</Link></li>
+        <li><Link to="/about">Sobre</Link></li>
+        <li><Link to="/projects">Projetos</Link></li>
+        <li><Link to="/contact">Contato</Link></li>
       </ul>
     </nav>
   </header>

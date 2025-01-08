@@ -10,9 +10,9 @@ import Contact from "./pages/Contact";
 const App = () => {
   return (
     <Router>
-      <div className="bg-gray-100 min-h-screen flex flex-col items-center">
+      <div className="">
         <Header />
-        <div className="flex-grow w-full flex justify-center items-center">
+        <div className="container mx-auto flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
