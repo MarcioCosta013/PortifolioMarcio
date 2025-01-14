@@ -50,8 +50,9 @@ const Footer = () => (
           <BsWhatsapp size={24} className="mx-3" />
         </a>
       </diV>
-      <p>© 2025 Marcio Costa Dev. Todos os direitos reservados.</p>
+      
     </div>
+    <p>© 2025 Marcio Costa Dev. Todos os direitos reservados.</p>
   </footer>
 );
 

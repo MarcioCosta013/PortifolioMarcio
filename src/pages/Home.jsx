@@ -17,6 +17,7 @@ const Home = () => (
       <p className="mt-4 text-lg text-gray-700">
         Sou Márcio Costa, desenvolvedor Back-end Java.
       </p>
+      
     </div>
   </div>
 );
