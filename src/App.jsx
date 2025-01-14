@@ -13,7 +13,7 @@ const App = () => {
     <Router>
       <div className="">
         <Header />
-        <div className="container mx-auto flex-grow">
+        <div className=" ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
