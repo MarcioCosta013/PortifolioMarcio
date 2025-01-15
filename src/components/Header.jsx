@@ -1,5 +1,5 @@
 import React from "react";
-
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   return (
@@ -29,6 +29,7 @@ const Header = () => {
               </a>
             </li>
           </ul>
+          <ThemeToggle />
         </div>
       </nav>
     </header>

@@ -30,7 +30,7 @@ const Contact = () => (
           triggerContent={<TfiEmail size={70} className="mx-3" />}
           popupTitle="Email"
           popupContent="Este popup foi aberto pelo ícone do email!"
-          popupLink="emailto:marcio-costa38@hotmail.com"
+          popupLink="mailto:marcio-costa38@hotmail.com"
         />
       </div>
       <div className="w-[1143px] flex flex-wrap justify-center gap-6 max-w-[90%]">
