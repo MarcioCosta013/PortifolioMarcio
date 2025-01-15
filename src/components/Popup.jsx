@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-
-const Popup = ({ triggerContent, popupTitle, popupContent }) => {
+const Popup = ({ triggerContent, popupTitle, popupContent, popupLink }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleTriggerClick = () => {
@@ -29,8 +28,23 @@ const Popup = ({ triggerContent, popupTitle, popupContent }) => {
             >
               &times;
             </button>
-            <h2 className="text-lg font-bold mb-4">{popupTitle}</h2>
-            <p className="text-gray-700">{popupContent}</p>
+
+            <div className="text-center">
+              {triggerContent}
+              <h2 className="text-primary text-lg font-bold mb-4">
+                {popupTitle}
+              </h2>
+              <p className="text-gray-700">{popupContent}</p>
+              <a
+                href={popupLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 underline"
+                
+              >
+                Ver Mais
+              </a>
+            </div>
           </div>
         </div>
       )}

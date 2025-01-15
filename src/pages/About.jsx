@@ -1,7 +1,7 @@
 import React from "react";
 
 const About = () => (
-  <div className="pt-20">
+  <div className="pt-20 container mx-auto">
     <div className="bg-gray-600 min-h-screen flex flex-col items-center p-9 m-11">
       <h2 className="text-3xl text-primary font-bold text-center">Sobre Mim</h2>
       <p>
