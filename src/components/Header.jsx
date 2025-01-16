@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       {/* Menu fixo no topo */}
-      <nav className="bg-primary text-white fixed top-0 w-full z-10">
+      <nav className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText fixed top-0 w-full z-10">
         <div className="container mx-auto flex justify-center items-center p-4">
           <ul className="flex space-x-4">
             <li>

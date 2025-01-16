@@ -6,14 +6,24 @@ import {
 } from "react-icons/sl";
 import { TfiEmail } from "react-icons/tfi";
 import { BsWhatsapp } from "react-icons/bs";
-import logo from "../assets/imagens/logo.jpeg";
+import logo from "../assets/imagens/logoMcdev.png";
+import logo2 from "../assets/imagens/logo22.png";
 
 const Footer = () => (
-  <footer className="bg-primary justify-center text-white py-4 text-center w-full">
+  <footer className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText justify-center py-4 text-center w-full">
     <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
       <div className="text-2xl font-bold">
         <a href="/">
-          <img src={logo} alt="Logo" className="w-80 h-80 rounded-full" />
+          <img
+            src={logo2}
+            alt="Logo"
+            className="block dark:hidden w-80 h-80"
+          />
+          <img
+            src={logo}
+            alt="Logo"
+            className="hidden dark:block w-80 h-80"
+          />
         </a>
       </div>
       <diV className="flex space-x-2 mt-4 md:mt-0">
@@ -50,7 +60,6 @@ const Footer = () => (
           <BsWhatsapp size={24} className="mx-3" />
         </a>
       </diV>
-      
     </div>
     <p>© 2025 Marcio Costa Dev. Todos os direitos reservados.</p>
   </footer>

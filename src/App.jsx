@@ -11,9 +11,9 @@ import Contact from "./pages/Contact";
 const App = () => {
   return (
     <Router>
-      <div className="">
+      <div>
         <Header />
-        <div className=" ">
+        <div >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
