@@ -21,7 +21,7 @@ const Popup = ({ triggerContent, popupTitle, popupContent, popupLink }) => {
       {/* Popup */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg relative">
+          <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText p-6 rounded shadow-lg relative">
             <button
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
               onClick={handleClosePopup}
@@ -34,7 +34,7 @@ const Popup = ({ triggerContent, popupTitle, popupContent, popupLink }) => {
               <h2 className="text-primary text-lg font-bold mb-4">
                 {popupTitle}
               </h2>
-              <p className="text-gray-700">{popupContent}</p>
+              <p className="text-lightText dark:text-darkText">{popupContent}</p>
               <a
                 href={popupLink}
                 target="_blank"

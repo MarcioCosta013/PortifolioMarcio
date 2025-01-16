@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => (
   <div className="pt-20 container mx-auto">
-    <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText min-h-screen flex flex-col items-center p-9 m-11">
+    <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText min-h-screen flex flex-col items-center p-9 m-11 border-double border-4 border-darkBg dark:border-lightBg">
       <h2 className="text-3xl font-bold text-center">Sobre Mim</h2>
       <p>
         Minha Trajetória Profissional <br /> Minha paixão por tecnologia começou
@@ -54,6 +54,15 @@ const About = () => (
         portfólio, onde compartilho um pouco do meu trabalho e da minha
         história. <br />
         Vamos criar algo incrível juntos?
+        <div className=" pt-10">
+          <a
+            href="/MarcioCosta-fullstackCV.pdf"
+            download="MarcioCosta-fullstackCV.pdf"
+            className="transition ease-in-out delay-150 px-3 py-2 dark:bg-lightBg dark:text-lightText bg-darkBg text-darkText rounded-lg hover:bg-blue-700 dark:hover:bg-darkBg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+          >
+            Download Currículo em PDF
+          </a>
+        </div>
       </p>
     </div>
   </div>
