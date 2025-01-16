@@ -2,8 +2,8 @@ import React from "react";
 
 const About = () => (
   <div className="pt-20 container mx-auto">
-    <div className="bg-gray-600 min-h-screen flex flex-col items-center p-9 m-11">
-      <h2 className="text-3xl text-primary font-bold text-center">Sobre Mim</h2>
+    <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText min-h-screen flex flex-col items-center p-9 m-11">
+      <h2 className="text-3xl font-bold text-center">Sobre Mim</h2>
       <p>
         Minha Trajetória Profissional <br /> Minha paixão por tecnologia começou
         cedo, quando percebi o poder de transformar ideias em soluções através

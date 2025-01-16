@@ -11,16 +11,14 @@ import Contact from "./pages/Contact";
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText">
         <Header />
-        <div >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
         <Footer />
       </div>
     </Router>

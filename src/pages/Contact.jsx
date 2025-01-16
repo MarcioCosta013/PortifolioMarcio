@@ -6,7 +6,7 @@ import { BsWhatsapp } from "react-icons/bs";
 
 const Contact = () => (
   <div className="container mx-auto p-9 m-11">
-    <div className="grid justify-items-center gap-10 pt-20  bg-gray-600 min-h-screen items-center">
+    <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText gap-10 pt-20 min-h-screen flex flex-col items-center p-9 m-11">
       <h2 className="text-4xl font-bold text-primary">Entre em Contato: </h2>
       <div className="w-[1143px] flex flex-wrap justify-center gap-6 max-w-[90%]">
         <Popup
