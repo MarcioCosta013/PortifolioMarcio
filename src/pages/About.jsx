@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/Button";
 
 const About = () => (
   <div className="pt-20 container mx-auto">
@@ -54,14 +55,14 @@ const About = () => (
         portfólio, onde compartilho um pouco do meu trabalho e da minha
         história. <br />
         Vamos criar algo incrível juntos?
-        <div className=" pt-10">
-          <a
-            href="/MarcioCosta-fullstackCV.pdf"
-            download="MarcioCosta-fullstackCV.pdf"
-            className="transition ease-in-out delay-150 px-3 py-2 dark:bg-lightBg dark:text-lightText bg-darkBg text-darkText rounded-lg hover:bg-blue-700 dark:hover:bg-darkBg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+        
+        <div className="pt-10">
+          <Button
+            downloadUrl="/MarcioCosta-fullstackCV.pdf"
+            downloadName="MarcioCosta-fullstackCV.pdf"
           >
-            Download Currículo em PDF
-          </a>
+            Download do curriculo PDF
+          </Button>
         </div>
       </p>
     </div>
