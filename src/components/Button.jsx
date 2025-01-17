@@ -4,9 +4,9 @@ import { ThemeContext } from "../context/ThemeContext";
 const Button = ({
   children,
   onClick,
+  hrefButton,
   downloadUrl,
   downloadName,
-  className,
 }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -21,6 +21,13 @@ const Button = ({
     // Execute a função passada por onClick, se houver
     if (onClick) {
       onClick();
+    }
+
+    // Abre a URL em uma nova aba
+    if (hrefButton) {
+      const url = hrefButton;
+      const win = window.open(url, "_blank");
+      win.focus();
     }
   };
 

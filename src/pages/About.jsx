@@ -6,10 +6,13 @@ const About = () => (
     <div className="bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText min-h-screen flex flex-col items-center p-9 m-11 border-double border-4 border-darkBg dark:border-lightBg">
       <h2 className="text-3xl font-bold text-center">Sobre Mim</h2>
       <p>
-        Minha Trajetória Profissional <br /> Minha paixão por tecnologia começou
-        cedo, quando percebi o poder de transformar ideias em soluções através
-        do código. Desde então, venho trilhando um caminho de aprendizado e
-        prática, combinando curiosidade, dedicação e amor pelo que faço.
+        <h2 className="text-1xl font-bold pt-10">
+          Minha Trajetória Profissional
+        </h2>{" "}
+        Minha paixão por tecnologia começou cedo, quando percebi o poder de
+        transformar ideias em soluções através do código. Desde então, venho
+        trilhando um caminho de aprendizado e prática, combinando curiosidade,
+        dedicação e amor pelo que faço.
         <br />
         <br /> Iniciei minha formação em Desenvolvimento de Sistemas na Escola
         Técnica Estadual Miguel Batista, onde aprendi os fundamentos da
@@ -18,8 +21,10 @@ const About = () => (
         Desenvolvimento de Sistemas pela UNINASSAU, consolidando uma base sólida
         em linguagens como Java e frameworks como Spring.
         <br />
-        <br /> Minha jornada profissional teve momentos marcantes, como:
-        <br /> - Desenvolvedor na Hyding Community: Aqui, combinei criatividade
+        <h2 className="text-1xl font-bold pt-10">
+          Minha jornada profissional teve momentos marcantes, como:
+        </h2>
+        - Desenvolvedor na Hyding Community: Aqui, combinei criatividade
         e técnica para desenvolver e manter sites utilizando WordPress
         (Elementor), HTML/CSS, JavaScript e PHP. Também liderei a programação
         semanal de uma rádio online e forneci suporte técnico aos sistemas,
@@ -55,7 +60,6 @@ const About = () => (
         portfólio, onde compartilho um pouco do meu trabalho e da minha
         história. <br />
         Vamos criar algo incrível juntos?
-        
         <div className="pt-10">
           <Button
             downloadUrl="/MarcioCosta-fullstackCV.pdf"
