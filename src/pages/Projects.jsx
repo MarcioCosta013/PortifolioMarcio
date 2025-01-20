@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
 import axios from "axios";
 
-//Antes tem que instalar o 'dotenv' para que permita carregar as variaveis de ambiente...
-//npm install dotenv
-const githubToken = process.env.REACT_APP_GITHUB_githubToken;
+//No vite é usado o "import.meta." para importar as variaveis de controle do ".env".
+const githubToken = import.meta.env.VITE_GITHUB_TOKEN;
 
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [error, setError] = useState("");
 
-  // Lista de links dos repositórios
   const repoLinks = [
     "https://github.com/MarcioCosta013/WebServiceRESTfulJava",
     "https://github.com/MarcioCosta013/portifolioMarcio",
@@ -18,10 +16,17 @@ const Projects = () => {
 
   useEffect(() => {
     const fetchRepos = async () => {
+      
+      if (!githubToken) {
+        console.error("Erro: Token do GitHub não encontrado!");
+        setError("Erro interno: token não configurado corretamente.");
+        return;
+      }
+
       try {
         const repoData = await Promise.all(
           repoLinks.map(async (link) => {
-            const match = link.match(/github.com\/([\w-]+)\/([\w-]+)/);
+            const match = link.match(/github\.com\/([\w-]+)\/([\w-]+)/);
             if (!match) {
               throw new Error("Link de repositório inválido.");
             }
@@ -32,27 +37,23 @@ const Projects = () => {
               `https://api.github.com/repos/${owner}/${repo}`,
               {
                 headers: {
-                  Authorization: `token ${githubToken}`,
+                  Authorization: githubToken,
                 },
               }
             );
-
-            console.log("Repo Response:", repoResponse.data);
 
             const languagesResponse = await axios.get(
               `https://api.github.com/repos/${owner}/${repo}/languages`,
               {
                 headers: {
-                  Authorization: `token ${githubToken}`,
+                  Authorization: githubToken,
                 },
               }
             );
 
-            console.log("Languages Response:", languagesResponse.data);
-
             return {
               title: repoResponse.data.name,
-              description: repoResponse.data.description,
+              description: repoResponse.data.description || "Sem descrição",
               techs: Object.keys(languagesResponse.data).join(", "),
               link,
             };
@@ -60,9 +61,11 @@ const Projects = () => {
         );
         setRepos(repoData);
       } catch (err) {
-        setError("Erro ao carregar os repositórios. Verifique os links.");
+        console.error("Erro ao carregar repositórios:", err);
+        setError("Erro ao carregar os repositórios. Verifique os links ou o token.");
       }
     };
+
     fetchRepos();
   }, []);
 
