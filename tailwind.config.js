@@ -11,6 +11,16 @@ module.exports = {
         darkText: "#54a49c",
         color1: "#74c4ac",
         color2: "#72beb4",
+        scrollbar: {
+          track: {
+            light: "#042c34", // Cor do track no modo claro
+            dark: "#232E33", // Cor do track no modo escuro
+          },
+          thumb: {
+            light: "#042c34", // Cor do thumb no modo claro
+            dark: "#6BAF8D", // Cor do thumb no modo escuro
+          },
+        },
       },
     },
   },
