@@ -8,12 +8,10 @@
 
 ::-webkit-scrollbar-track {
   background: var(--scrollbar-track-color);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb-color);
-  border-radius: 3px;
+  border-radius: 2px;
 }
-
-
