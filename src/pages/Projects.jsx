@@ -10,7 +10,7 @@ const Projects = () => {
     const fetchRepos = async () => {
       try {
         // Chamar a API interna
-        const response = await axios.get("/api/github");
+        const response = await axios.get("/api/github.js");
         setRepos(response.data);
       } catch (err) {
         console.error("Erro ao carregar repositórios:", err);
