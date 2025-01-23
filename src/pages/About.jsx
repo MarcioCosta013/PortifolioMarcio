@@ -65,7 +65,7 @@ const About = () => (
             downloadUrl="/MarcioCosta-fullstackCV.pdf"
             downloadName="MarcioCosta-fullstackCV.pdf"
           >
-            Download do curriculo PDF
+            Download do Curriculo em PDF
           </Button>
         </div>
       </p>
