@@ -9,7 +9,11 @@ const Projects = () => {
     const fetchRepos = async () => {
       console.log("Iniciando fetch de repositórios...");
       try {
-        const response = await fetch("/api/github"); // Chamada para a função serverless
+        const response = await fetch("/api/github", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }); // Chamada para a função serverless
         console.log("Resposta recebida da API:", response);
 
         if (!response.ok) {
