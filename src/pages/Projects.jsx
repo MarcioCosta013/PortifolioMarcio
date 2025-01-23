@@ -8,16 +8,22 @@ const Projects = () => {
 
   useEffect(() => {
     const fetchRepos = async () => {
+      console.log("Iniciando fetch de repositórios...");
       try {
-        // Chamar a API interna
-        const response = await axios.get("/api/github");
-        console.log("Dados recebidos da API:", response.data);
-        setRepos(response.data);
-      } catch (err) {
-        console.error("Erro ao carregar repositórios:", err);
-        setError(
-          "Erro ao carregar os repositórios. Tente novamente mais tarde."
-        );
+        const response = await fetch("/api/github"); // Chamada para a função serverless
+        console.log("Resposta recebida da API:", response);
+
+        if (!response.ok) {
+          throw new Error(`Erro na API: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Dados recebidos:", data);
+
+        setRepos(data);
+      } catch (error) {
+        console.error("Erro ao carregar os repositórios:", error);
+        setError("Erro ao carregar os repositórios. Verifique os logs.");
       }
     };
 
