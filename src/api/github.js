@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+export default async function handler(res) {
   const token = process.env.GITHUB_TOKEN; // Token do GitHub armazenado no ambiente seguro
 
   try {
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
           {
             headers: {
               Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
+              "Content-Type": "application/json", 
             },
           }
         );
