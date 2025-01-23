@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         const repoResponse = await fetch(
           `https://api.github.com/repos/${owner}/${repo}`,
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: token },
           }
         );
 
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
         const languagesResponse = await fetch(
           `https://api.github.com/repos/${owner}/${repo}/languages`,
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: token },
           }
         );
 
