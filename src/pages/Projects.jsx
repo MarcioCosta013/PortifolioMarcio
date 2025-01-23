@@ -11,10 +11,13 @@ const Projects = () => {
       try {
         // Chamar a API interna
         const response = await axios.get("/api/github.js");
+        console.log("Dados recebidos da API:", response.data);
         setRepos(response.data);
       } catch (err) {
         console.error("Erro ao carregar repositórios:", err);
-        setError("Erro ao carregar os repositórios. Tente novamente mais tarde.");
+        setError(
+          "Erro ao carregar os repositórios. Tente novamente mais tarde."
+        );
       }
     };
 
@@ -27,18 +30,18 @@ const Projects = () => {
         <h2 className="text-4xl font-bold text-primary">Meus Projetos</h2>
         {error && <p className="text-red-500 mt-4">{error}</p>}
         <div className="grid grid-cols-3 pt-10 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {repos.length > 0 ? (
+          {Array.isArray(repos) && repos.length > 0 ? ( //Para garantir que "repos" seja sempre um array.
             repos.map((repo, index) => (
               <ProjectCard
                 key={index}
-                title={repo.title}
-                description={repo.description}
-                techs={repo.techs}
-                link={repo.link}
+                title={repo.title || "Título não encontrado"}
+                description={repo.description || "Sem descrição"}
+                techs={repo.techs || "Nenhuma tecnologia"}
+                link={repo.link || "#"}
               />
             ))
           ) : (
-            <p>Carregando...</p>
+            <p>{error || "Carregando ou nenhum repositório encontrado..."}</p>
           )}
         </div>
       </div>
