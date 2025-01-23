@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
-import axios from "axios";
 
 const Projects = () => {
   const [repos, setRepos] = useState([]);
@@ -10,7 +9,7 @@ const Projects = () => {
     const fetchRepos = async () => {
       console.log("Iniciando fetch de repositórios...");
       try {
-        const response = await fetch("/api/github"); // Chamada para a função serverless
+        const response = await fetch("/api/github", { params: { owner, repo } }); // Chamada para a função serverless
         console.log("Resposta recebida da API:", response);
 
         if (!response.ok) {

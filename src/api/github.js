@@ -20,9 +20,11 @@ export default async function handler(req, res) {
         const repoResponse = await fetch(
           `https://api.github.com/repos/${owner}/${repo}`,
           {
-            headers: { Authorization: token },
+            headers: { Authorization: `Bearer ${token}` },
           }
         );
+        console.log(`URL chamada: https://api.github.com/repos/${owner}/${repo}`);
+
 
         if (!repoResponse.ok)
           throw new Error(`Erro ao acessar o repositório: ${link}`);
@@ -33,9 +35,11 @@ export default async function handler(req, res) {
         const languagesResponse = await fetch(
           `https://api.github.com/repos/${owner}/${repo}/languages`,
           {
-            headers: { Authorization: token },
+            headers: { Authorization: `Bearer ${token}` },
           }
         );
+        console.log(`URL chamada: https://api.github.com/repos/${owner}/${repo}`);
+
 
         if (!languagesResponse.ok)
           throw new Error(`Erro ao carregar linguagens: ${link}`);
