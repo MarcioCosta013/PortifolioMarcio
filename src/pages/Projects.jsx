@@ -2,67 +2,19 @@ import React, { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
 import axios from "axios";
 
-//No vite é usado o "import.meta." para importar as variaveis de controle do ".env".
-const githubToken = import.meta.env.VITE_GITHUB_TOKEN;
-
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [error, setError] = useState("");
 
-  const repoLinks = [
-    "https://github.com/MarcioCosta013/WebServiceRESTfulJava",
-    "https://github.com/MarcioCosta013/portifolioMarcio",
-  ];
-
   useEffect(() => {
     const fetchRepos = async () => {
-      
-      if (!githubToken) {
-        console.error("Erro: Token do GitHub não encontrado!");
-        setError("Erro interno: token não configurado corretamente.");
-        return;
-      }
-
       try {
-        const repoData = await Promise.all(
-          repoLinks.map(async (link) => {
-            const match = link.match(/github\.com\/([\w-]+)\/([\w-]+)/);
-            if (!match) {
-              throw new Error("Link de repositório inválido.");
-            }
-
-            const [_, owner, repo] = match;
-
-            const repoResponse = await axios.get(
-              `https://api.github.com/repos/${owner}/${repo}`,
-              {
-                headers: {
-                  Authorization: githubToken,
-                },
-              }
-            );
-
-            const languagesResponse = await axios.get(
-              `https://api.github.com/repos/${owner}/${repo}/languages`,
-              {
-                headers: {
-                  Authorization: githubToken,
-                },
-              }
-            );
-
-            return {
-              title: repoResponse.data.name,
-              description: repoResponse.data.description || "Sem descrição",
-              techs: Object.keys(languagesResponse.data).join(", "),
-              link,
-            };
-          })
-        );
-        setRepos(repoData);
+        // Chamar a API interna
+        const response = await axios.get("/api/github");
+        setRepos(response.data);
       } catch (err) {
         console.error("Erro ao carregar repositórios:", err);
-        setError("Erro ao carregar os repositórios. Verifique os links ou o token.");
+        setError("Erro ao carregar os repositórios. Tente novamente mais tarde.");
       }
     };
 
