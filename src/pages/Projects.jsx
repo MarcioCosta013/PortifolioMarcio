@@ -20,7 +20,7 @@ const Projects = () => {
           throw new Error(`Erro na API: ${response.status}`);
         }
 
-        const data = await response.text();
+        const data = await response.json();
         console.log("Dados recebidos:", data);
 
         setRepos(data);
