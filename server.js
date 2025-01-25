@@ -10,7 +10,7 @@ const PORT = 5000;
 // Configuração do CORS
 app.use(
   cors({
-    origin: "http://localhost:5173", // Permite apenas requisições deste domínio
+    origin: "https://portifolio-marcio.vercel.app/", // Permite apenas requisições deste domínio FRONTEND
     methods: ["GET", "POST"], // Permite os métodos GET e POST
   })
 );
