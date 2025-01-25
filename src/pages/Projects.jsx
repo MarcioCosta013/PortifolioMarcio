@@ -10,7 +10,7 @@ const Projects = () => {
     const fetchRepos = async () => {
       console.log("Iniciando fetch de repositórios...");
       try {
-        const response = await axios.get("/api/github", {
+        const response = await axios.get("http://localhost:5000/api/github", {
           headers: {
             "Content-Type": "application/json",
           },
