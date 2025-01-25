@@ -1,65 +1,58 @@
-export default async function handler(res) {
+import axios from "axios";
+
+export default async function handler(req, res) {
   const token = process.env.GITHUB_TOKEN; // Token do GitHub armazenado no ambiente seguro
 
   try {
-    // Links dos repositórios
     const repoLinks = [
       "https://github.com/MarcioCosta013/WebServiceRESTfulJava",
       "https://github.com/MarcioCosta013/portifolioMarcio",
     ];
 
-    // Buscar informações dos repositórios
     const repoData = await Promise.all(
       repoLinks.map(async (link) => {
         const match = link.match(/github\.com\/([\w-]+)\/([\w-]+)/);
-        if (!match) throw new Error("Link de repositório inválido.");
+        if (!match) throw new Error(`Link de repositório inválido: ${link}`);
 
         const [_, owner, repo] = match;
 
         // Buscar detalhes do repositório
-        const repoResponse = await fetch(
+        const repoResponse = await axios.get(
           `https://api.github.com/repos/${owner}/${repo}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json", 
+              "Content-Type": "application/json",
+              Accept: "application/vnd.github+json",
             },
           }
         );
 
-        if (!repoResponse.ok)
-          throw new Error(`Erro ao acessar o repositório: ${link}`);
-
-        const repoDetails = await repoResponse.json();
-
         // Buscar linguagens do repositório
-        const languagesResponse = await fetch(
+        const languagesResponse = await axios.get(
           `https://api.github.com/repos/${owner}/${repo}/languages`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
+              Accept: "application/vnd.github+json",
             },
           }
         );
 
-        if (!languagesResponse.ok)
-          throw new Error(`Erro ao carregar linguagens: ${link}`);
-
-        const languages = await languagesResponse.json();
-
         return {
-          title: repoDetails.name,
-          description: repoDetails.description || "Sem descrição",
-          techs: Object.keys(languages).join(", "),
+          title: repoResponse.data.name,
+          description: repoResponse.data.description || "Sem descrição",
+          techs: Object.keys(languagesResponse.data).join(", "),
           link,
         };
       })
     );
 
+    console.log("Dados dos repositórios:", repoData);
     res.status(200).json(repoData);
   } catch (error) {
-    console.error("Erro na API interna:", error);
+    console.error("Erro na API interna:", error.message);
     res.status(500).json({ error: "Erro ao buscar dados dos repositórios." });
   }
 }
