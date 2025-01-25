@@ -1,10 +1,19 @@
 import express from "express";
 import axios from "axios";
+import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
 const PORT = 5000;
+
+// Configuração do CORS
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Permite apenas requisições deste domínio
+    methods: ["GET", "POST"], // Permite os métodos GET e POST
+  })
+);
 
 // Middleware para processar JSON
 app.use(express.json());
