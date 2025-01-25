@@ -26,7 +26,7 @@ const Footer = () => (
           />
         </a>
       </div>
-      <diV className="flex space-x-2 mt-4 md:mt-0">
+      <div className="flex space-x-2 mt-4 md:mt-0">
         <p>Entre em Contato:</p>
         <a
           href="https://github.com/MarcioCosta013"
@@ -59,7 +59,7 @@ const Footer = () => (
         >
           <BsWhatsapp size={24} className="mx-3" />
         </a>
-      </diV>
+      </div>
     </div>
     <p>© 2025 Marcio Costa Dev. Todos os direitos reservados.</p>
   </footer>

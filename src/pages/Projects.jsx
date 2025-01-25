@@ -9,12 +9,21 @@ const Projects = () => {
     const fetchRepos = async () => {
       console.log("Iniciando fetch de repositórios...");
       try {
-        const response = await fetch("https://portifolio-marcio.vercel.app/api/github"); // Chamada para a função serverless
-        console.log("Resposta recebida da API:", response);
+        const response = await fetch("/api/github", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }); // Chamada para a função serverless
 
         if (!response.ok) {
           throw new Error(`Erro na API: ${response.status}`);
         }
+        
+        const contentType = response.headers.get("Content-Type");
+        if (contentType && contentType.includes("text/html")) {
+          throw new Error("A API retornou um HTML em vez de um JSON");
+        }
+
 
         const data = await response.json();
         console.log("Dados recebidos:", data);
@@ -22,7 +31,7 @@ const Projects = () => {
         setRepos(data);
       } catch (error) {
         console.error("Erro ao carregar os repositórios:", error);
-        setError("Erro ao carregar os repositórios. Verifique os logs.");
+        setError("Erro ao carregar os repositórios.");
       }
     };
 
