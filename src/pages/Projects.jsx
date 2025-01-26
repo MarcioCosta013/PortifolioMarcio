@@ -55,7 +55,7 @@ const Projects = () => {
               />
             ))
           ) : (
-            <p>{error || "Carregando ou nenhum repositório encontrado..."}</p>
+            <p className="container mx-auto flex justify-center items-center p-4">{error || "Carregando ou nenhum repositório encontrado..."}</p>
           )}
         </div>
       </div>
