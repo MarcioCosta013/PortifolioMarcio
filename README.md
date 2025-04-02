@@ -1,4 +1,13 @@
-# Meu Portfólio - Márcio Costa
+[react]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
+[reactrouter]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[javascript]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
+
+# Meu Portfólio - Marcio Costa (Em Andamento) 🔋
+![react][react]
+![javascript][javascript]
+![vite][vite]
+![reactrouter][reactrouter]
 
 Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi desenvolvido em React com Vite, com o objetivo de apresentar minhas habilidades, projetos e experiência como desenvolvedor back-end.
 
@@ -62,11 +71,6 @@ src/
    ```
    http://localhost:5173
    ```
-
-## 🌐 Deploy
-
-Este portfólio foi implantado no **Vercel** e está acessível pelo link:
-[https://meuportfolio.vercel.app](https://meuportfolio.vercel.app)
 
 ## 🛠️ Contribuição
 
